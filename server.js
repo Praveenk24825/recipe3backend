@@ -67,7 +67,6 @@ mongoose
   })
   .catch((err) => console.error("DB connection error:", err));
   */
-
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -85,14 +84,16 @@ import { errorHandler } from "./middleware/errorMiddleware.js";
 dotenv.config();
 const app = express();
 
-// ✅ Allowed frontend origins (update if you add another frontend)
+// ✅ Allowed frontend origins — include your Netlify domain here
 const allowedOrigins = [
   "http://localhost:5173",
+  "http://localhost:5174",
   "http://localhost:5175",
   "https://qwery902.netlify.app",
+  "https://recipefrontend45.netlify.app" // ✅ your Netlify live site
 ];
 
-// ✅ CORS setup — handles preflight (OPTIONS) requests too
+// ✅ CORS setup — handles preflight requests too
 app.use((req, res, next) => {
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
@@ -131,7 +132,7 @@ app.use("/api/auth", authRoutes);
 
 // ✅ Root route
 app.get("/", (req, res) => {
-  res.send("API is running...");
+  res.send("🍳 RecipeShare API is running successfully!");
 });
 
 // ✅ Global error handler
