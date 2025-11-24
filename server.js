@@ -90,8 +90,10 @@ const allowedOrigins = [
   "http://localhost:5174",
   "http://localhost:5175",
   "https://qwery902.netlify.app",
-  "https://recipefrontend45.netlify.app" // ✅ your Netlify live site
+  "https://recipefrontend45.netlify.app",
+  "https://recipe-frontend-lake.vercel.app"  // ✅ ADD THIS
 ];
+
 
 // ✅ CORS setup — handles preflight requests too
 app.use((req, res, next) => {
